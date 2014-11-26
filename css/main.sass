@@ -1,36 +1,95 @@
-* 
-	margin: 0 auto
-	section
-		margin: 0 auto
-		width: 100%
+$colorNegro: #000
+$colorGris: #333
+$colorRosa: #FF358B
+$colorAzul: #01B0F0
+$colorVerde: #AEEE00
+$alturaCuadro: 120px
+$anchoRomper: 815px
+@font-face
+	font-family: TimesNewRomance
+	src: url(../fonts/TimesNewRomance.ttf)
+body
+	background-color: $colorGris
+	background-size: cover
+	#content
+		width: 800px
 		height: auto
-		background-color: #5A048E
-		padding-left: 44%
-		box-sizing: border-box
-		font: italic 300 1em/1.2em Helvetica
+		margin: 0 auto
+		@media (max-width: $anchoRomper)
+			width: 100%
 		h1
-			font: italic 300 35px/35px Helvetica
-		#checkbox
-			display: inline
-	nav
-		margin: 0 auto
-		width: 100%
-		height: auto
-		background-color: #FFFF80
-		padding-left: 44%
-		box-sizing: border-box
-		font: italic 300 1em/1.2em Helvetica		
-	#foro
-		margin: 0 auto
-		width: 100%
-		height: auto
-		padding-left: 44%
-		box-sizing: border-box
-		font: italic 300 1em/1.2em Helvetica
+			font-size: 5em
+			color: white
+			text-align: center
+			font-family: TimesNewRomance	
+			@media (max-width: $anchoRomper)
+				font-size: 4em
 		.hombre
-			background-color: #00FFFF
+			background-color: $colorAzul
 		.mujer
-			background-color: #F369E9
-.picante
-	display: none
-		
+			background-color: $colorRosa 
+		.cuadro
+			width: 400px
+			height: $alturaCuadro
+			float: right		
+			line-height: $alturaCuadro
+			border-radius: 10px
+			margin-top: 5px
+			padding-left: 1em
+			padding-right: 1em
+			font-size: 1.2em
+			font-family: TimesNewRomance
+			@media (max-width: $anchoRomper)
+				width: 100%
+				box-sizing: border-box
+		#formu
+			width: 300px
+			height: auto
+			float: left
+			background-color: $colorVerde
+			text-align: center	
+			border-radius: 10px
+			margin-top: 5px
+			@media (max-width: $anchoRomper)
+				width: 100%
+			textarea
+				width: 10em
+				height: 2em
+				border-radius: 10px
+				resize: none
+				padding: 2em
+				font-size: 1.2em
+				font-family: TimesNewRomance
+				@media (max-width: $anchoRomper)
+					width: 90%
+					box-sizing: border-box
+			textarea:focus
+				outline: 0
+			button, label
+				font-size: 1.2em
+				font-family: TimesNewRomance
+			button
+				width: 80%
+				padding-top: 6px
+			#cuadroErotico
+				text-align: left
+				padding-left: 20px
+		footer
+			float: left
+			clear: both
+			color: white
+			font-size: 1.2em
+			font-family: TimesNewRomance
+			padding: 2em
+			text-align: center
+			width: 100%
+			@media (max-width: $anchoRomper)
+				font-size: 0.9em
+				box-sizing: border-box
+			a
+				text-decoration: none
+				color: white
+				font-family: TimesNewRomance
+				font-weight: bolder
+			a:hover
+				color: $colorVerde
