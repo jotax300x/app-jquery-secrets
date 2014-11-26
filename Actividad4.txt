@@ -1,0 +1,14 @@
+Realiza una web para contar secretos. 
+
+Características:
+-Formulario con textarea (mensaje) + radio (género) + checkbox (erótico).
+-Posibilidad de comentar cada secreto.
+
+Tecnología:
+- Todo se realizará con Ajax.
+- Necesitarás una base de datos.
+- PHP para las consultas e inserts.
+
+Pro:
+- Utiliza SQLite.
+- Paginador con ajax.
