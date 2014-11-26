@@ -11,7 +11,7 @@
         <meta name="viewport" content="width=device-width,user-scalable=no
 , initial-scale=1">
 
-        <link rel="stylesheet" href="css/normalize.min.css">
+
         <link rel="stylesheet" href="css/main.css">
 
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
@@ -27,42 +27,37 @@
         <header>
             <h1>Secrets</h1>
         </header>
-        <form action="#" id="formu">
+        <form id="formu">
             <p>
-                <textarea name="mensaje" id="" cols="30" rows="10"></textarea>
+                <textarea name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
             </p>
             <p>
-                <input id="hombre" name="genero" type="radio" checked value="hombre">
+                <input id="hombre" name="genero" type="radio" value="1">
                 <label for="hombre">Hombre</label>
             </p>
             <p>
-                <input type="radio" name="genero" id="mujer" value="mujer">
+                <input type="radio" name="genero" id="mujer" value="0">
                 <label for="mujer">Mujer</label>
             </p>
             <p id="cuadroErotico">
                 <label for="erotico">Erótico</label>
                 <input type="checkbox" name="erotico" id="erotico">
+                <label for="edad">Soy mayor de edad</label>
+                <input type="checkbox" name="edad" id="edad"><br>
             </p>
             <p>
-                <button>Publicar</button>
+                <button id="enviar" type="button">Publicar</button>
             </p>
         </form>
-        <div class="cuadro hombre">Me hago pasar por un pollo.</div>
-        <div class="cuadro hombre">Me tiro pedos</div>
-        <div class="cuadro mujer">Bostezo en mitad de un bostezo</div>
-        <div class="cuadro hombre">Ayudo a los no discapacitados</div>
-        <div class="cuadro mujer"></div>
-        <div class="cuadro hombre"></div>
-        <div class="cuadro hombre"></div>
-        <div class="cuadro mujer"></div>
-        <div class="cuadro mujer"></div>
-        <div class="cuadro hombre"></div>
+        <div id="foro">
+
+        </div>        
         <footer>
             Autor: <a href="programadorwebvalencia.com">Andros Fenollosa</a> 2014 &copy;
         </footer>
     </div>
 
-    <script src="js/vendor/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery-2.1.1.min.js"></script>
     <script src="js/main.js"></script>
     </body>
 </html>

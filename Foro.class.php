@@ -28,7 +28,7 @@ class Foro {
 			} else {
 				$sPicante = 'picante';
 			};
-			echo "<div class='$sSexo $sPicante'><p class='fecha'>'$Fecha'</p><br><p class='mensaje'>'$sMensaje'</p></div>";
+			echo "<div class='cuadro $sSexo $sPicante'>'$sMensaje'</div>";
 		}
 	}
 
