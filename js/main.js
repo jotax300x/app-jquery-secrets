@@ -19,7 +19,7 @@ $(document).ready(function() {
 		// 	$foro.html(data);
 		// });
 		$.ajax({
-		    url: 'consultar.php',
+		    url: 'http://pixelmouse.es/trabajos/secrets/consultar.php',
 		    dataType: 'jsonp',
         	contentType: "application/json; charset=utf-8",
 		    type: 'GET',
