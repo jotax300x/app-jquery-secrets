@@ -15,9 +15,38 @@ $(document).ready(function() {
 	});
 
 	function mostrarMensajes() {
-		$.get('consultar.php', function(data) {
-			$foro.html(data);
-		});
+		// $.get('consultar.php', function(data) {
+		// 	$foro.html(data);
+		// });
+		$.ajax({
+		    url: 'consultar.php',
+		    dataType: 'jsonp',
+        	contentType: "application/json; charset=utf-8",
+		    type: 'GET',
+		    crossDomain: true,
+		    data: {
+		    	//Enviar dato extra
+		        //'usuario' : iUsuario
+		    },
+		    success: function (respuesta) {
+				var sHTML = '';
+				var sMensaje = '';
+				var sGenero = ''; 
+				var sErotico = '';
+				var aMensajes = jQuery.makeArray(respuesta);
+				for(var aColum in aMensajes) {
+					sMensaje = aLogros[aColum]['mensaje'];
+					sGenero = aLogros[aColum]['genero'];
+					sErotico = aLogros[aColum]['erotico'];
+					sHTML = "<div class='cuadro " + sGenero + " " + 
+					sErotico + "'>" + sMensaje + "</div>";
+					$foro.append(sHTML);
+				}
+		    }, 
+			error: function (jqXHR, textStatus, errorThrown) { 
+				console.log(textStatus + ': ' + errorThrown.message); 
+			}
+		})
 	}
 	mostrarMensajes()
 	
