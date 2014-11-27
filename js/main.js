@@ -37,7 +37,6 @@ $radio.click(function() {
 
 
 	$enviar.on('click', function() {
-		console.log('funcio')
 		if ($mensaje.val().length == 0) {
 			alert('Tienes que escribir un mensaje')
 		} else {

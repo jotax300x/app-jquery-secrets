@@ -11,25 +11,45 @@ class Foro {
 	public function mostrarMensajes() {
 		$sSQL = "SELECT * FROM erotic_bd ORDER BY fecha DESC";
 		$resultados = $this->miDB->obtenerResultado($sSQL);
+		$aDatos = array();
 		foreach ($resultados as $key => $value) {
+
+			//Version MJ
+			// $sMensaje = $value['mensaje'];
+			// $bGenero = $value['genero'];
+			// $bPicante = $value['erotico'];
+			// $Fecha = $value['fecha'];
+			// $sSexo;
+			// $aDatos;
+			// $aMensaje;
+			// array_push($aDatos, $sMensaje, $bGenero, $bPicante, $Fecha);
+			// array_push($aMensaje, $aDatos);
+			// $sPicante;
+			// if ($bGenero == 1) {
+			// 	$sSexo = 'hombre';
+			// } else {
+			// 	$sSexo = 'mujer';
+			// };
+			// if ($bPicante == 0) {
+			// 	$sPicante = '';
+			// } else {
+			// 	$sPicante = 'picante';
+			// };
+			// echo "<div class='cuadro $sSexo $sPicante'>'$sMensaje'</div>";
+
+
+			//Version Andros
 			$sMensaje = $value['mensaje'];
 			$bGenero = $value['genero'];
 			$bPicante = $value['erotico'];
-			$Fecha = $value['fecha'];
-			$sSexo;
-			$sPicante;
-			if ($bGenero == 1) {
-				$sSexo = 'hombre';
-			} else {
-				$sSexo = 'mujer';
-			};
-			if ($bPicante == 0) {
-				$sPicante = '';
-			} else {
-				$sPicante = 'picante';
-			};
-			echo "<div class='cuadro $sSexo $sPicante'>'$sMensaje'</div>";
+			$aDatos[]['mensaje'] = $sMensaje;
+			$aDatos[]['genero'] = $bGenero;
+			$aDatos[]['picante'] = $bPicante;
 		}
+		//Esto es para indicar el tipo de datos que esta llegando.
+		header('Content-Type: application/json');
+		//Envio los datos de forma que los pueda leer jquery con la funcion 'jasonp'
+    	echo $_GET['callback'] .'(' .json_encode($aDatos) . ')';
 	}
 
 	/**
