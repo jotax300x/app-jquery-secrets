@@ -12,6 +12,7 @@ class Foro {
 		$sSQL = "SELECT * FROM erotic_bd ORDER BY fecha DESC";
 		$resultados = $this->miDB->obtenerResultado($sSQL);
 		$aDatos = array();
+		$iCont = 0;
 		foreach ($resultados as $key => $value) {
 
 			//Version MJ
@@ -42,9 +43,10 @@ class Foro {
 			$sMensaje = $value['mensaje'];
 			$bGenero = $value['genero'];
 			$bPicante = $value['erotico'];
-			$aDatos[]['mensaje'] = $sMensaje;
-			$aDatos[]['genero'] = $bGenero;
-			$aDatos[]['picante'] = $bPicante;
+			$aDatos[$iCont]['mensaje'] = $sMensaje;
+			$aDatos[$iCont]['genero'] = $bGenero;
+			$aDatos[$iCont]['picante'] = $bPicante;
+			$iCont++;
 		}
 		//Esto es para indicar el tipo de datos que esta llegando.
 		header('Content-Type: application/json');
