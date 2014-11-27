@@ -8,16 +8,22 @@ $(document).ready(function() {
 	$foro = $('#foro');
 	$edad = $('input[name=edad]');
 
-
+	/**
+	 * Muestra los mensajes picantes si eres mayor de edad
+	 */
 	$edad.on('click', function() {
 		$pican = $('.picante');
 		$pican.slideToggle();
 	});
-
+	/**
+	 * Metodo que muestra los mensajes
+	 * @return {[type]} [description]
+	 */
 	function mostrarMensajes() {
 		// $.get('consultar.php', function(data) {
 		// 	$foro.html(data);
 		// });
+		// $.ajax este codigo es para obtener o enviar jason de otro servidor 
 		$.ajax({
 		    url: 'http://pixelmouse.es/trabajos/secrets/consultar.php',
 		    dataType: 'jsonp',
@@ -33,6 +39,7 @@ $(document).ready(function() {
 				var sMensaje = '';
 				var sGenero = ''; 
 				var sErotico = '';
+				//jQuery.makeArray convierte el json en un array
 				var aMensajes = jQuery.makeArray(respuesta);
 				for(var aColum in aMensajes) {
 					sMensaje = aMensajes[aColum]['mensaje'];
@@ -50,11 +57,15 @@ $(document).ready(function() {
 	}
 	mostrarMensajes()
 	
-
-$radio.click(function() {
-    iSexo = $('input[name=genero]:checked:first').val();
-});
-
+	/**
+	 * Obtiene el genero del que escribe el mensaje
+	 */
+	$radio.click(function() {
+	    iSexo = $('input[name=genero]:checked:first').val();
+	});
+	/**
+	 * Comprueba si el mensaje es picante o no
+	 */
 	function comprobarPicante() {
 		if ($checkbox.is(':checked')) {
 			$picante = 1;
