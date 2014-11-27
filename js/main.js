@@ -18,6 +18,7 @@ $(document).ready(function() {
 		// $.get('consultar.php', function(data) {
 		// 	$foro.html(data);
 		// });
+		
 		$.ajax({
 		    url: 'http://pixelmouse.es/trabajos/secrets/consultar.php',
 		    dataType: 'jsonp',
@@ -29,6 +30,7 @@ $(document).ready(function() {
 		        //'usuario' : iUsuario
 		    },
 		    success: function (respuesta) {
+		    	$foro.html('');
 				var sHTML = '';
 				var sMensaje = '';
 				var sGenero = ''; 
@@ -70,14 +72,26 @@ $radio.click(function() {
 			alert('Tienes que escribir un mensaje')
 		} else {
 			comprobarPicante();
-			$.post('insertar.php',
-			 	{mensaje: $mensaje.val(),
+			$.ajax({
+			    url: 'http://pixelmouse.es/trabajos/secrets/insertar.php',
+			    dataType: 'jsonp',
+	        	contentType: "application/json; charset=utf-8",
+			    type: 'GET',
+			    crossDomain: true,
+			    data: {
+			    	mensaje: $mensaje.val(),
 			 	 sexo: iSexo,
 			 	 picante: $picante
-			 	},
-			 	 function(data, textStatus, xhr) {
-				mostrarMensajes();
-			});
+			 	
+			    },
+			    success: function (respuesta) {
+					mostrarMensajes();
+			    }, 
+				error: function (jqXHR, textStatus, errorThrown) { 
+					console.log(textStatus + ': ' + errorThrown.message); 
+					mostrarMensajes();
+			}
+		})
 			$mensaje.val('');
 		};
 		
