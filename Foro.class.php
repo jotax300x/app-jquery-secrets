@@ -40,21 +40,22 @@ class Foro {
 
 
 			//Version Andros
-			$sSexo;
--			$sPicante;
--			if ($bGenero == 1) {
--				$sSexo = 'hombre';
--			} else {
--				$sSexo = 'mujer';
--			};
--			if ($bPicante == 0) {
--				$sPicante = '';
--			} else {
--				$sPicante = 'picante';
--			};
 			$sMensaje = $value['mensaje'];
 			$bGenero = $value['genero'];
 			$bPicante = $value['erotico'];
+			$sSexo;
+			$sPicante;
+			if ($bGenero == 1) {
+				$sSexo = 'hombre';
+			} else {
+				$sSexo = 'mujer';
+			};
+			if ($bPicante == 0) {
+				$sPicante = '';
+			} else {
+				$sPicante = 'picante';
+			};
+			
 			$aDatos[$iCont]['mensaje'] = $sMensaje;
 			$aDatos[$iCont]['genero'] = $sSexo;
 			$aDatos[$iCont]['picante'] = $sPicante;

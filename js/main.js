@@ -35,9 +35,9 @@ $(document).ready(function() {
 				var sErotico = '';
 				var aMensajes = jQuery.makeArray(respuesta);
 				for(var aColum in aMensajes) {
-					sMensaje = aLogros[aColum]['mensaje'];
-					sGenero = aLogros[aColum]['genero'];
-					sErotico = aLogros[aColum]['erotico'];
+					sMensaje = aMensajes[aColum]['mensaje'];
+					sGenero = aMensajes[aColum]['genero'];
+					sErotico = aMensajes[aColum]['erotico'];
 					sHTML = "<div class='cuadro " + sGenero + " " + 
 					sErotico + "'>" + sMensaje + "</div>";
 					$foro.append(sHTML);
