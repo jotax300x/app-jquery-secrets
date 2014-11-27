@@ -55,8 +55,8 @@ $(document).ready(function() {
 			}
 		})
 	}
-	mostrarMensajes()
 	
+	setInterval(mostrarMensajes(), 500);
 	/**
 	 * Obtiene el genero del que escribe el mensaje
 	 */
